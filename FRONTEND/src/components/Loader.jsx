@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import 'ldrs/cardio';
 import { gsap } from 'gsap';
 import './Loader.css'; // External CSS for styling
 
@@ -7,46 +6,45 @@ const Loader = () => {
   useEffect(() => {
     const cardioContainer = document.querySelector('.cardio-container');
     const loaderElement = document.querySelector('.loader');
-  
+
     if (cardioContainer && loaderElement) {
       // Initialize GSAP animations only if elements exist
       const loaderAnimation = gsap.timeline();
-      
-      // Cardio element zoom-in effect
-      loaderAnimation
-        .fromTo(
-          cardioContainer, 
-          { scale: 0 }, 
-          { scale: 1, duration: 2, ease: 'power2.inOut' }
-        )
-        .fromTo(
-          '.loading-message',
-          { opacity: 0 },
-          { opacity: 1, duration: 1.5, ease: 'power2.inOut' },
-          '-=1'
-        );
-  
-      // Zoom-out effect when transitioning to the landing page
-      loaderAnimation.to(cardioContainer, {
-        scale: 0,
-        delay: 3,
-        duration: 1.5,
-        ease: 'power3.inOut',
-        onComplete: () => {
-          loaderElement.classList.add('hidden');
-        },
-      });
-  
-      // Transition to landing page
-      // gsap.fromTo(
-      //   '.LandingPage',
-      //   { scale: 1.5, opacity: 0 },
-      //   { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut', delay: 5 }
-      // );
+
+      try {
+        // Cardio element zoom-in effect
+        loaderAnimation
+          .fromTo(
+            cardioContainer,
+            { scale: 0 },
+            { scale: 1, duration: 2, ease: 'power2.inOut' }
+          )
+          .fromTo(
+            '.loading-message',
+            { opacity: 0 },
+            { opacity: 1, duration: 1.5, ease: 'power2.inOut' },
+            '-=1'
+          );
+
+        // Zoom-out effect when transitioning to the landing page
+        loaderAnimation.to(cardioContainer, {
+          scale: 0,
+          delay: 3,
+          duration: 1.5,
+          ease: 'power3.inOut',
+          onComplete: () => {
+            loaderElement.classList.add('hidden');
+          },
+        });
+
+        // Example animation with error handling
+        gsap.to('.my-animation-target', { duration: 1, opacity: 1 });
+
+      } catch (error) {
+        console.error('Error with GSAP animation:', error);
+      }
     }
-  
   }, []);
-  
 
   return (
     <div className="loader">

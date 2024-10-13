@@ -39,9 +39,10 @@ mongoose
   .catch((err) => console.log("MongoDB connection error:", err));
 
 // Root endpoint to check if backend is running
-app.get("/", (req, res) => {
-  res.json("Backend is running"); // Custom message for root endpoint
+app.get("/api/test", (req, res) => {
+  res.json({ message: "Backend connected!" }); // Custom message for the /api/test endpoint
 });
+
 
 // API to execute code using Piston
 app.post("/api/execute", async (req, res) => {
