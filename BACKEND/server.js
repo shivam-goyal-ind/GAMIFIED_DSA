@@ -36,10 +36,9 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log("MongoDB connection error:", err));
 
-  app.get('/test', (req, res) => {
+  app.get('/api/test', (req, res) => {
     res.json({ message: 'CORS is configured!' });
-  })
-
+});
 // Root endpoint to check if backend is running
 app.get("/", (req, res) => {
   res.json("Backend connected!"); // Custom message for the /api/test endpoint

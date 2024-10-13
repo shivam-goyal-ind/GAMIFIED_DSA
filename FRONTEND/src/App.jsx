@@ -20,10 +20,10 @@ function App() {
     // Fetch data from backend to test connection
     const fetchData = async () => {
       try {
-        const result = await getBackendData(); // Call the backend API
-        setMessage(result.message); // Set the backend message in state
+        const response = await API.get('/test'); // Making the API call here
+        console.log(response.data); // Handle the response data as needed
       } catch (error) {
-        console.error("Error:", error); // Handle error
+        console.error("Error fetching data:", error);
       }
     };
 
