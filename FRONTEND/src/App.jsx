@@ -5,7 +5,7 @@ import LocomotiveScroll from 'locomotive-scroll';
 import { Box, Button } from "@chakra-ui/react";  // Import Chakra UI Button
 import CodeEditor from "./components/CodeEditor";  // Import CodeEditor
 import { getBackendData } from "./api"; // Import the API to connect to the backend
-
+import API from "./api";
 function App() {
   const [loading, setLoading] = useState(true);  // State to track if the page is still loading
   const [showEditor, setShowEditor] = useState(false);  // New state to toggle code editor
