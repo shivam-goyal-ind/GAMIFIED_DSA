@@ -31,7 +31,7 @@ app.use("/api", submitRouter);
 
 // MongoDB Connection
 mongoose
-  .connect("mongodb://localhost:27017/gamified_dsa", {
+  .connect("mongodb+srv://imgoyal2005:hellomongodb@cluster0.lgcnjwv.mongodb.net/gamified_dsa?retryWrites=true&w=majority&appName=Cluster0", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
