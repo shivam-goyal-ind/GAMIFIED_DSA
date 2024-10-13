@@ -40,7 +40,7 @@ mongoose
 
 // Root endpoint to check if backend is running
 app.get("/", (req, res) => {
-  res.send("Backend is running"); // Custom message for root endpoint
+  res.json("Backend is running"); // Custom message for root endpoint
 });
 
 // API to execute code using Piston
