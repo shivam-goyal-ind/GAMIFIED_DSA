@@ -7,12 +7,11 @@ const Loader = () => {
   useEffect(() => {
     const cardioContainer = document.querySelector('.cardio-container');
     const loaderElement = document.querySelector('.loader');
+    const landingPageElement = document.querySelector('.LandingPage');
   
     if (cardioContainer && loaderElement) {
-      // Initialize GSAP animations only if elements exist
       const loaderAnimation = gsap.timeline();
       
-      // Cardio element zoom-in effect
       loaderAnimation
         .fromTo(
           cardioContainer, 
@@ -26,7 +25,6 @@ const Loader = () => {
           '-=1'
         );
   
-      // Zoom-out effect when transitioning to the landing page
       loaderAnimation.to(cardioContainer, {
         scale: 0,
         delay: 3,
@@ -34,18 +32,19 @@ const Loader = () => {
         ease: 'power3.inOut',
         onComplete: () => {
           loaderElement.classList.add('hidden');
+          // Ensure the LandingPage is present before animating
+          if (landingPageElement) {
+            gsap.fromTo(
+              '.LandingPage',
+              { scale: 1.5, opacity: 0 },
+              { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut' }
+            );
+          }
         },
       });
-  
-      // Transition to landing page
-      // gsap.fromTo(
-      //   '.LandingPage',
-      //   { scale: 1.5, opacity: 0 },
-      //   { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut', delay: 5 }
-      // );
     }
-  
   }, []);
+  
   
 
   return (
