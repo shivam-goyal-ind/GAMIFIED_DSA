@@ -18,7 +18,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 // Middleware
 app.use(cors({
-  origin: ['https://gamified-dsa-frontend.vercel.app'], // Replace with your frontend URL
+  origin: ["https://gamified-dsa-frontend.vercel.app"], // Replace with your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Adjust methods as needed
   credentials: true // Optional, use if your frontend requires credentials
 }));
