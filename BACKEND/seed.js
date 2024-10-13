@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const Question = require("./models/questionModel");
 
-mongoose.connect("mongodb://localhost:27017/gamified_dsa", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+mongoose.connect("mongodb+srv://imgoyal2005:hellomongodb@cluster0.lgcnjwv.mongodb.net/gamified_dsa?retryWrites=true&w=majority&appName=Cluster0", {
+  // useNewUrlParser: true,
+  // useUnifiedTopology: true,
 });
 
 const questions = [
