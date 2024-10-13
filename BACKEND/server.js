@@ -18,9 +18,9 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 // Middleware
 app.use(cors({
-  origin: ["https://gamified-dsa-frontend.vercel.app"],
-  methods : ["POST", "GET"],
-  credentials:true
+  origin: 'https://gamified-dsa-frontend.vercel.app', // Replace with your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Adjust methods as needed
+  credentials: true // Optional, use if your frontend requires credentials
 }));
 
  // Allow cross-origin requests from the frontend
@@ -37,6 +37,10 @@ mongoose
   })
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log("MongoDB connection error:", err));
+
+  app.get('/test', (req, res) => {
+    res.json({ message: 'CORS is configured!' });
+  })
 
 // Root endpoint to check if backend is running
 app.get("/", (req, res) => {
