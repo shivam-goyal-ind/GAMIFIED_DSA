@@ -37,8 +37,8 @@ app.use("/api", submitRouter);
 // MongoDB Connection
 mongoose
   .connect("mongodb+srv://imgoyal2005:hellomongodb@cluster0.lgcnjwv.mongodb.net/gamified_dsa?retryWrites=true&w=majority&appName=Cluster0", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
   })
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log("MongoDB connection error:", err));
