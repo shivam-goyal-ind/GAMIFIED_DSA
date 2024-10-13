@@ -19,7 +19,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 // Middleware
 app.use(cors({
   origin: (origin, callback) => {
-    const allowedOrigins = ['https://gamified-dsa-frontend.vercel.app', 'http://localhost:3000'];
+    const allowedOrigins = ['https://gamified-dsa-frontend.vercel.app/', 'http://localhost:3000'];
     if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -134,11 +134,6 @@ app.post("/api/auth/signin", async (req, res) => {
     console.error(error);
     res.status(500).json({ message: "Server error" });
   }
-});
-
-// Example API endpoint for testing the backend
-app.get("/api/test", (req, res) => {
-  res.json({ message: "Backend connected!" });
 });
 
 // Root endpoint to check if backend is running
