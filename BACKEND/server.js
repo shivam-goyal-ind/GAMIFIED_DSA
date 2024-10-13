@@ -18,14 +18,9 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 // Middleware
 app.use(cors({
-  origin: (origin, callback) => {
-    const allowedOrigins = ['https://gamified-dsa-frontend.vercel.app/', 'http://localhost:3000'];
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
+  origin: ["https://gamified-dsa-frontend.vercel.app"],
+  methods : ["POST", "GET"],
+  credentials:true
 }));
 
  // Allow cross-origin requests from the frontend
@@ -44,8 +39,8 @@ mongoose
   .catch((err) => console.log("MongoDB connection error:", err));
 
 // Root endpoint to check if backend is running
-app.get("/api/test", (req, res) => {
-  res.json({ message: "Backend connected!" }); // Custom message for the /api/test endpoint
+app.get("/", (req, res) => {
+  res.json("Backend connected!"); // Custom message for the /api/test endpoint
 });
 
 
@@ -136,10 +131,10 @@ app.post("/api/auth/signin", async (req, res) => {
   }
 });
 
-// Root endpoint to check if backend is running
-app.get("/", (req, res) => {
-  res.send("Backend is running"); // Custom message for root endpoint
-});
+// // Root endpoint to check if backend is running
+// app.get("/", (req, res) => {
+//   res.send("Backend is running"); // Custom message for root endpoint
+// });
 // Start the server
 
 app.listen(PORT, () => {
