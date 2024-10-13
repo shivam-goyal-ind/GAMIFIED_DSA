@@ -17,13 +17,13 @@ require("dotenv").config();
 const JWT_SECRET = process.env.JWT_SECRET;
 
 // Middleware
-app.use(cors(
-  {
-    origin : ["https://gamified-dsa-frontend.vercel.app"],
-    methods : ["POST", "GET"],
-    credentials : true
-  }
-)); // Allow cross-origin requests from the frontend
+app.use(cors({
+  origin: ["https://gamified-dsa-frontend.vercel.app"], // Replace with your frontend's actual URL
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
+ // Allow cross-origin requests from the frontend
 app.use(express.json()); // Replacing body-parser with express.json()
 
 app.use("/api", questionRoutes);

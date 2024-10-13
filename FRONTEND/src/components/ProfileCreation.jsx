@@ -26,7 +26,7 @@ function ProfileCreation() {
   };
   const getUserProfile = async (token) => {
     try {
-      const response = await fetch('https://your-api.com/profile', {
+      const response = await fetch('https://gamified-dsa-backend.vercel.app/api/profile', { // Use your deployed backend URL here
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`, // Send the token for authorization
@@ -40,6 +40,7 @@ function ProfileCreation() {
       return { username: '', jerseyName: '', jerseyNumber: '' };
     }
   };
+  
   
   const handleSubmit = async (e) => {
     e.preventDefault();
