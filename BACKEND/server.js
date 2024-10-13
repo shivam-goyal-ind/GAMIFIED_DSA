@@ -17,7 +17,13 @@ require("dotenv").config();
 const JWT_SECRET = process.env.JWT_SECRET;
 
 // Middleware
-app.use(cors()); // Allow cross-origin requests from the frontend
+app.use(cors(
+  {
+    origin : [],
+    methods : ["POST", "GET"],
+    credentials : true
+  }
+)); // Allow cross-origin requests from the frontend
 app.use(express.json()); // Replacing body-parser with express.json()
 
 app.use("/api", questionRoutes);
