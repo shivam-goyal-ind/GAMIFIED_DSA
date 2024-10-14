@@ -3,7 +3,7 @@ import { LANGUAGE_VERSIONS } from "./constants"; // Updated import path
 
 // Change this to the local server URL for your backend
 const API = axios.create({
-  baseURL: "https://gamified-dsa-backend.vercel.app/api", // Base URL for your API
+  baseURL: "https://gamified-dsa-backend.vercel.app", // Base URL for your API
 });
 
 export default API;
