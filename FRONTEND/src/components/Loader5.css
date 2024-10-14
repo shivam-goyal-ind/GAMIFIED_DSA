@@ -29,7 +29,7 @@
     display: none;
   }
   
-  .landing-page {
+  .LandingPage {
     opacity: 0; /* Hide landing page initially */
     transform: scale(1.5); /* Start with zoomed-in */
     transition: opacity 0.5s ease, transform 1.5s ease;
