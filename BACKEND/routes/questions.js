@@ -14,6 +14,7 @@ dotenv.config();
 const JWT_SECRET = process.env.JWT_SECRET;
 const JUDGE0_API_URL = "https://judge0-ce.p.rapidapi.com/submissions"; // Judge0 API URL
 const JUDGE0_API_KEY = process.env.JUDGE0_API_KEY; // API Key from .env
+const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:5000"; // Fallback to localhost
 
 // Signup Route
 router.post("/signup", async (req, res) => {

@@ -103,27 +103,35 @@ const testResults = await Promise.all(
 
 
     // Check if all test cases passed
-    const allPassed = testResults.every((result) => result);
+const allPassed = testResults.every((result) => result);
 
-    if (allPassed) {
-      // If all test cases passed, fetch the next random question
-      try {
-        const nextQuestionResponse = await axios.get(
-          "http://localhost:5000/api/questions/random"
-        );
-        res.json({
-          success: true,
-          message: "All test cases passed!",
-          nextQuestion: nextQuestionResponse.data, // Send the next question
-        });
-      } catch (error) {
-        console.error("Error fetching next question:", error);
-        res.status(500).json({ error: "Error fetching next question" });
-      }
-    } else {
-      // If some test cases failed, inform the user
-      res.json({ success: false, message: "Some test cases failed" });
-    }
+if (allPassed) {
+  // If all test cases passed, fetch the next random question
+  try {
+    // Use environment variable to fetch the next question URL dynamically
+    const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:5000"; // Fallback to localhost if not set
+    const nextQuestionResponse = await axios.get(`${API_BASE_URL}/api/questions/random`);
+
+    // Return success response with next question
+    res.json({
+      success: true,
+      message: "All test cases passed!",
+      nextQuestion: nextQuestionResponse.data, // Send the next question
+    });
+  } catch (error) {
+    console.error("Error fetching next question:", error);
+
+    // Handle the error for fetching next question
+    res.status(500).json({
+      success: false,
+      error: "Error fetching next question. Please try again later.",
+    });
+  }
+} else {
+  // If some test cases failed, inform the user
+  res.json({ success: false, message: "Some test cases failed." });
+}
+
   } catch (error) {
     console.error("Error checking solution:", error);
     res.status(500).json({ error: "Error checking solution" });
