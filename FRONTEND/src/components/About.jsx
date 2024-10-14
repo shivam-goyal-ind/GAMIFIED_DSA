@@ -31,7 +31,7 @@ function About() {
             <div className="h-3 w-3 rounded-full bg-zinc-100"></div>
           </button>
         </div>
-        <div className="w-1/2 h-[40vh] rounded-3xl bg-red-600 bg-cover">
+        <div className="w-1/2 h-[40vh] rounded-3xl bg-cover">
           <img className="rounded-3xl" src="https://miro.medium.com/v2/resize:fit:1242/1*pQlCKP5D5rrsn7kZtjddRQ.png" alt="image">
           </img>
         </div>

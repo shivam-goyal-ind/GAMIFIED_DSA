@@ -36,7 +36,7 @@ const Loader4 = () => {
 
     // Transition to landing page
     gsap.fromTo(
-      '.landing-page',
+      '.LandingPage',
       { scale: 1.5, opacity: 0 },
       { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut', delay: 5 }
     );

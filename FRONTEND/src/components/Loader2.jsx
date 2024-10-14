@@ -7,7 +7,7 @@ const Loader2 = () => {
   useEffect(() => {
     // Wait for the DOM to be fully ready
     const loaderElement = document.querySelector('.Loader2');
-    const landingPageElement = document.querySelector('.landing-page');
+    const landingPageElement = document.querySelector('.LandingPage');
 
     if (loaderElement) {
       // Initialize GSAP animations
@@ -42,7 +42,7 @@ const Loader2 = () => {
     // Ensure landing page exists before animating it
     if (landingPageElement) {
       gsap.fromTo(
-        '.landing-page',
+        '.LandingPage',
         { scale: 1.5, opacity: 0 },
         { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut', delay: 5 }
       );
