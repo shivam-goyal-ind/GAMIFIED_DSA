@@ -3,19 +3,19 @@ import 'ldrs/cardio';
 import { gsap } from 'gsap';
 import './Loader.css'; // External CSS for styling
 
-const Loader = () => {
+const Loader = ({ onComplete }) => { // Accept onComplete as a prop
   useEffect(() => {
     const cardioContainer = document.querySelector('.cardio-container');
     const loaderElement = document.querySelector('.loader');
     const landingPageElement = document.querySelector('.LandingPage');
-  
+
     if (cardioContainer && loaderElement) {
       const loaderAnimation = gsap.timeline();
-      
+
       loaderAnimation
         .fromTo(
-          cardioContainer, 
-          { scale: 0 }, 
+          cardioContainer,
+          { scale: 0 },
           { scale: 1, duration: 2, ease: 'power2.inOut' }
         )
         .fromTo(
@@ -23,29 +23,26 @@ const Loader = () => {
           { opacity: 0 },
           { opacity: 1, duration: 1.5, ease: 'power2.inOut' },
           '-=1'
-        );
-  
-      loaderAnimation.to(cardioContainer, {
-        scale: 0,
-        delay: 3,
-        duration: 1.5,
-        ease: 'power3.inOut',
-        onComplete: () => {
-          loaderElement.classList.add('hidden');
-          // Ensure the LandingPage is present before animating
-          if (landingPageElement) {
-            gsap.fromTo(
-              '.LandingPage',
-              { scale: 1.5, opacity: 0 },
-              { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut' }
-            );
-          }
-        },
-      });
+        )
+        .to(cardioContainer, {
+          scale: 0,
+          delay: 3,
+          duration: 1.5,
+          ease: 'power3.inOut',
+          onComplete: () => {
+            loaderElement.classList.add('hidden');
+            // Ensure the LandingPage is present before animating
+            if (landingPageElement) {
+              gsap.fromTo(
+                '.LandingPage',
+                { scale: 1.5, opacity: 0 },
+                { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut', onComplete }
+              );
+            }
+          },
+        });
     }
   }, []);
-  
-  
 
   return (
     <div className="loader">
