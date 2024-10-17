@@ -3,7 +3,7 @@ import 'ldrs/cardio';
 import { gsap } from 'gsap';
 import './Loader.css'; // External CSS for styling
 
-const Loader = ({ onComplete }) => { // Accept onComplete as a prop
+const Loader = () => { 
   useEffect(() => {
     const cardioContainer = document.querySelector('.cardio-container');
     const loaderElement = document.querySelector('.loader');
@@ -23,8 +23,9 @@ const Loader = ({ onComplete }) => { // Accept onComplete as a prop
           { opacity: 0 },
           { opacity: 1, duration: 1.5, ease: 'power2.inOut' },
           '-=1'
-        )
-        .to(cardioContainer, {
+        );
+  
+        loaderAnimation.to(cardioContainer, {
           scale: 0,
           delay: 3,
           duration: 1.5,
@@ -36,7 +37,7 @@ const Loader = ({ onComplete }) => { // Accept onComplete as a prop
               gsap.fromTo(
                 '.LandingPage',
                 { scale: 1.5, opacity: 0 },
-                { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut', onComplete }
+                { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut'}
               );
             }
           },
