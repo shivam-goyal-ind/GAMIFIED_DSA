@@ -119,7 +119,7 @@ function ProfileCreation() {
         <form onSubmit={handleSubmit} className="space-y-4">
           {isSignUp ? (
             <>
-              {['username', 'jerseyName', 'jerseyNumber', 'email', 'password', 'confirm password'].map((field, idx) => (
+            {['username', 'jerseyName', 'jerseyNumber', 'email', 'password', 'confirmPassword'].map((field, idx) => (
                 <input
                   key={idx}
                   type={field.includes('password') ? 'password' : field === 'email' ? 'email' : 'text'}

@@ -109,7 +109,7 @@ if (allPassed) {
   // If all test cases passed, fetch the next random question
   try {
     // Use environment variable to fetch the next question URL dynamically
-    const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:5000"; // Fallback to localhost if not set
+    const API_BASE_URL = process.env.API_BASE_URL; // Fallback to localhost if not set
     const nextQuestionResponse = await axios.get(`${API_BASE_URL}/api/questions/random`);
 
     // Return success response with next question

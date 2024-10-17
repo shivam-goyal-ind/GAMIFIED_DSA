@@ -1,13 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import 'ldrs/cardio';
 import { gsap } from 'gsap';
 import './Loader.css'; // External CSS for styling
 
 const Loader = () => { 
+  const loaderRef = useRef(null);
+  const landingPageRef = useRef(null);
+  const cardioContainerRef = useRef(null);
+
   useEffect(() => {
-    const cardioContainer = document.querySelector('.cardio-container');
-    const loaderElement = document.querySelector('.loader');
-    const landingPageElement = document.querySelector('.LandingPage');
+    const loaderElement = loaderRef.current;
+    const landingPageElement = landingPageRef.current;
+    const cardioContainer = cardioContainerRef.current;
 
     if (cardioContainer && loaderElement) {
       const loaderAnimation = gsap.timeline();
@@ -24,30 +28,31 @@ const Loader = () => {
           { opacity: 1, duration: 1.5, ease: 'power2.inOut' },
           '-=1'
         );
-  
-        loaderAnimation.to(cardioContainer, {
-          scale: 0,
-          delay: 3,
-          duration: 1.5,
-          ease: 'power3.inOut',
-          onComplete: () => {
+
+      loaderAnimation.to(cardioContainer, {
+        scale: 0,
+        delay: 3,
+        duration: 1.5,
+        ease: 'power3.inOut',
+        onComplete: () => {
+          if (loaderElement) {
             loaderElement.classList.add('hidden');
-            // Ensure the LandingPage is present before animating
-            if (landingPageElement) {
-              gsap.fromTo(
-                '.LandingPage',
-                { scale: 1.5, opacity: 0 },
-                { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut'}
-              );
-            }
-          },
-        });
+          }
+          if (landingPageElement) {
+            gsap.fromTo(
+              landingPageElement,
+              { scale: 1.5, opacity: 0 },
+              { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut'}
+            );
+          }
+        },
+      });
     }
   }, []);
 
   return (
-    <div className="loader">
-      <div className="flex justify-center items-center h-screen cardio-container">
+    <div ref={loaderRef} className="loader">
+      <div ref={cardioContainerRef} className="flex justify-center items-center h-screen cardio-container">
         <l-cardio
           size="500"
           stroke="3"
@@ -60,6 +65,11 @@ const Loader = () => {
       <div className="loading-message absolute top-[85%] text-center text-white text-2xl md:text-4xl font-bold tracking-wider">
         <p>Make It Work, Make It Right, Make It Fast</p>
         <p className="text-sm md:text-lg text-aqua">Gamified DSA</p>
+      </div>
+
+      {/* Landing Page */}
+      <div ref={landingPageRef} className="LandingPage">
+        {/* Your landing page content */}
       </div>
     </div>
   );
