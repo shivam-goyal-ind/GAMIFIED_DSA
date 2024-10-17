@@ -16,11 +16,14 @@ const CodeEditor = () => {
   const [loading, setLoading] = useState(true); // Add loading state
   const [output, setOutput] = useState(null); // Store code output
 
+  // Use environment variable for backend URL
+  const backendUrl = process.env.API_BASE_URL || "http://localhost:5000";
+
   // Fetch a random question from the backend without the difficulty filter
   const fetchQuestion = async () => {
     setLoading(true); // Start loading
     try {
-      const response = await axios.get("http://localhost:5000/api/questions/random");
+      const response = await axios.get(`${backendUrl}/api/questions/random`);
       console.log("Fetched question:", response.data); // Log the question data
       
       // Ensure question exists and has a valid _id
@@ -57,7 +60,7 @@ const CodeEditor = () => {
     const token = localStorage.getItem('token'); // Get the token from localStorage
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/execute",
+        `${backendUrl}/api/execute`,
         {
           language,
           sourceCode,
@@ -100,7 +103,7 @@ const CodeEditor = () => {
       console.log('Submitting code for Question ID:', questionId); // Added log
       // Make the Axios POST request to the correct endpoint
       const response = await axios.post(
-        "http://localhost:5000/api/submit",
+        `${backendUrl}/api/submit`,
         {
           questionId: questionId, // Use the fetched question's ID
           userCode: sourceCode, // Change to userCode to match the backend
