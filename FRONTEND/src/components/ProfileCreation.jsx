@@ -26,7 +26,7 @@ function ProfileCreation() {
   };
   const getUserProfile = async (token) => {
     try {
-      const response = await fetch(`${process.env.API_BASE_URL}/api/profile`, { // Use your deployed backend URL here
+      const response = await fetch('https://gamified-dsa-backend.vercel.app/api/profile', { // Use your deployed backend URL here
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`, // Send the token for authorization
