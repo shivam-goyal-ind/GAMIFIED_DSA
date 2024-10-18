@@ -21,7 +21,7 @@ const CodeEditor = () => {
   const fetchQuestion = async () => {
     setLoading(true); // Start loading
     try {
-      const response = await axios.get("https://gamified-dsa-backend.vercel.app/questions/random");
+      const response = await axios.get("https://gamified-dsa-backend.vercel.app/api/questions/random");
       console.log("Fetched question:", response.data); // Log the question data
       
       // Ensure question exists and has a valid _id
