@@ -24,22 +24,22 @@ function ProfileCreation() {
       [e.target.name]: e.target.value,
     });
   };
-  const getUserProfile = async (token) => {
-    try {
-      const response = await fetch('https://gamified-dsa-backend.vercel.app/api/profile', { // Use your deployed backend URL here
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${token}`, // Send the token for authorization
-        },
-      });
-      const data = await response.json();
+  // const getUserProfile = async (token) => {
+  //   try {
+  //     const response = await fetch('https://gamified-dsa-backend.vercel.app/api/profile', { // Use your deployed backend URL here
+  //       method: 'GET',
+  //       headers: {
+  //         Authorization: `Bearer ${token}`, // Send the token for authorization
+  //       },
+  //     });
+  //     const data = await response.json();
       
-      return data; // { username, jerseyName, jerseyNumber }
-    } catch (error) {
-      console.error('Error fetching profile:', error);
-      return { username: '', jerseyName: '', jerseyNumber: '' };
-    }
-  };
+  //     return data; // { username, jerseyName, jerseyNumber }
+  //   } catch (error) {
+  //     console.error('Error fetching profile:', error);
+  //     return { username: '', jerseyName: '', jerseyNumber: '' };
+  //   }
+  // };
   
   
   const handleSubmit = async (e) => {
