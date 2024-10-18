@@ -34,7 +34,7 @@ function LandingPage() {
 
   // If the Loader2 is active, display it
   if (showLoader2) {
-    return <Loader type="grid"/>;
+    return <Loader2 />;
   }
 
   // If the GameSelection is active, display it
