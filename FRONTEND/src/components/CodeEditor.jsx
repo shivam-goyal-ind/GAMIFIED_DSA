@@ -16,14 +16,12 @@ const CodeEditor = () => {
   const [loading, setLoading] = useState(true); // Add loading state
   const [output, setOutput] = useState(null); // Store code output
 
-  // Use environment variable for backend URL
-  const backendUrl = process.env.API_BASE_URL;
 
   // Fetch a random question from the backend without the difficulty filter
   const fetchQuestion = async () => {
     setLoading(true); // Start loading
     try {
-      const response = await axios.get(`${backendUrl}/questions/random`);
+      const response = await axios.get("https://gamified-dsa-backend.vercel.app/questions/random");
       console.log("Fetched question:", response.data); // Log the question data
       
       // Ensure question exists and has a valid _id
