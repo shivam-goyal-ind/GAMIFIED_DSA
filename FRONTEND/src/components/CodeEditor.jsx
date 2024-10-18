@@ -23,7 +23,7 @@ const CodeEditor = () => {
   const fetchQuestion = async () => {
     setLoading(true); // Start loading
     try {
-      const response = await axios.get(`${backendUrl}/api/questions/random`);
+      const response = await axios.get(`${backendUrl}/questions/random`);
       console.log("Fetched question:", response.data); // Log the question data
       
       // Ensure question exists and has a valid _id
