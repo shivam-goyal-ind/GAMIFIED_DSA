@@ -27,26 +27,27 @@ const Loader = () => {
           { opacity: 0 },
           { opacity: 1, duration: 1.5, ease: 'power2.inOut' },
           '-=1'
-        );
+        )
+        .to(cardioContainer, {
+          scale: 0,
+          delay: 3,
+          duration: 1.5,
+          ease: 'power3.inOut',
+          onComplete: () => {
+            if (loaderElement) {
+              loaderElement.classList.add('hidden');
+            }
 
-      loaderAnimation.to(cardioContainer, {
-        scale: 0,
-        delay: 3,
-        duration: 1.5,
-        ease: 'power3.inOut',
-        onComplete: () => {
-          if (loaderElement) {
-            loaderElement.classList.add('hidden');
-          }
-          if (landingPageElement) {
-            gsap.fromTo(
-              landingPageElement,
-              { scale: 1.5, opacity: 0 },
-              { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut'}
-            );
-          }
-        },
-      });
+            // Check if the landing page element exists before animating
+            if (landingPageElement) {
+              gsap.fromTo(
+                landingPageElement,
+                { scale: 1.5, opacity: 0 },
+                { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut' }
+              );
+            }
+          },
+        });
     }
   }, []);
 
