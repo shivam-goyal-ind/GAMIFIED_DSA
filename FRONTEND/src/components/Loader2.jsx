@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import 'ldrs/grid';
 import { gsap } from 'gsap';
 import './Loader2.css'; // External CSS for styling
+import './LandingPage.jsx';
 
 const Loader2 = () => {
   useEffect(() => {

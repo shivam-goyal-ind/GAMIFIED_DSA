@@ -34,6 +34,7 @@ const Loader = () => {
           duration: 1.5,
           ease: 'power3.inOut',
           onComplete: () => {
+            // Ensure loaderElement is not null before accessing classList
             if (loaderElement) {
               loaderElement.classList.add('hidden');
             }
