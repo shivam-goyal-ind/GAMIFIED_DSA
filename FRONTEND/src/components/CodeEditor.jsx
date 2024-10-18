@@ -17,7 +17,7 @@ const CodeEditor = () => {
   const [output, setOutput] = useState(null); // Store code output
 
   // Use environment variable for backend URL
-  const backendUrl = process.env.API_BASE_URL || "http://localhost:5000";
+  const backendUrl = process.env.API_BASE_URL;
 
   // Fetch a random question from the backend without the difficulty filter
   const fetchQuestion = async () => {
