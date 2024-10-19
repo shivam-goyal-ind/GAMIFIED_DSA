@@ -1,31 +1,22 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import 'ldrs/cardio';
 import { gsap } from 'gsap';
 import './Loader.css'; // External CSS for styling
 
-const Loader = () => { 
-  const loaderRef = useRef(null);
-  const landingPageRef = useRef(null);
-  const cardioContainerRef = useRef(null);
-
+const Loader = () => {
   useEffect(() => {
-    const loaderElement = loaderRef.current;
-    const landingPageElement = landingPageRef.current;
-    const cardioContainer = cardioContainerRef.current;
-
-    // Set initial visibility of elements to prevent the "GSAP target not found" issue
-    gsap.set(
-      [cardioContainer, ".loading-message", landingPageElement],
-      { visibility: "visible" }
-    );
-
+    const cardioContainer = document.querySelector('.cardio-container');
+    const loaderElement = document.querySelector('.loader');
+  
     if (cardioContainer && loaderElement) {
+      // Initialize GSAP animations only if elements exist
       const loaderAnimation = gsap.timeline();
-
+      
+      // Cardio element zoom-in effect
       loaderAnimation
         .fromTo(
-          cardioContainer,
-          { scale: 0 },
+          cardioContainer, 
+          { scale: 0 }, 
           { scale: 1, duration: 2, ease: 'power2.inOut' }
         )
         .fromTo(
@@ -33,33 +24,33 @@ const Loader = () => {
           { opacity: 0 },
           { opacity: 1, duration: 1.5, ease: 'power2.inOut' },
           '-=1'
-        )
-        .to(cardioContainer, {
-          scale: 0,
-          delay: 3,
-          duration: 1.5,
-          ease: 'power3.inOut',
-          onComplete: () => {
-            // Safely check if loaderElement is still available before accessing classList
-            if (loaderElement) {
-              loaderElement.classList.add('hidden');
-            }
-          },
-        });
+        );
+  
+      // Zoom-out effect when transitioning to the landing page
+      loaderAnimation.to(cardioContainer, {
+        scale: 0,
+        delay: 3,
+        duration: 1.5,
+        ease: 'power3.inOut',
+        onComplete: () => {
+          loaderElement.classList.add('hidden');
+        },
+      });
+  
+      // Transition to landing page
+      // gsap.fromTo(
+      //   '.LandingPage',
+      //   { scale: 1.5, opacity: 0 },
+      //   { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut', delay: 5 }
+      // );
     }
-
-    if (landingPageElement) {
-      gsap.fromTo(
-        landingPageElement,
-        { scale: 1.5, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut' }
-      );
-    }
+  
   }, []);
+  
 
   return (
-    <div ref={loaderRef} className="loader">
-      <div ref={cardioContainerRef} className="flex justify-center items-center h-screen cardio-container">
+    <div className="loader">
+      <div className="flex justify-center items-center h-screen cardio-container">
         <l-cardio
           size="500"
           stroke="3"
@@ -72,11 +63,6 @@ const Loader = () => {
       <div className="loading-message absolute top-[85%] text-center text-white text-2xl md:text-4xl font-bold tracking-wider">
         <p>Make It Work, Make It Right, Make It Fast</p>
         <p className="text-sm md:text-lg text-aqua">Gamified DSA</p>
-      </div>
-
-      {/* Landing Page */}
-      <div ref={landingPageRef} className="LandingPage">
-        {/* Your landing page content */}
       </div>
     </div>
   );

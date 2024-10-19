@@ -5,7 +5,7 @@ import CodeEditor from './CodeEditor';
 
 function PlayerStats({ formData }) {
   // Set default values if any field is missing
-  const { username = 'N/A', jerseyNumber = 'N/A' } = formData;
+  const { username = '', jerseyNumber = '' } = formData;
 
   const [showLoader5, setShowLoader5] = useState(false);
   const [showCodingPlatform, setShowCodingPlatform] = useState(false);

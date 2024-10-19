@@ -1,47 +1,43 @@
 /* Basic styles for loader */
 .loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, #1c1c1e, #29292b, #3a3a3c);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.cardio-container {
-  /* Ensure cardio-container starts at scale 1 for visibility */
-  transform: scale(1);
-  transition: transform 1.5s ease-in-out;
-}
-
-.loading-message {
-  position: absolute;
-  top: 65%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  opacity: 0; /* Initial opacity for fade-in effect */
-  transition: opacity 1.5s ease;
-}
-
-.hidden {
-  display: none;
-}
-
-.LandingPage {
-  opacity: 0; /* Hide landing page initially */
-  transform: scale(1.5); /* Start with zoomed-in */
-  visibility: hidden; /* Ensuring it's hidden initially */
-  transition: opacity 0.5s ease, transform 1.5s ease, visibility 0s 1.5s; /* Delay visibility change */
-}
-
-body {
-  background-color: #f4f4f9; /* Adjust the background of landing page */
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-}
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #1c1c1e, #29292b, #3a3a3c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .cardio-container {
+    transform: scale(0); /* Starting with scale 0 for zoom-in effect */
+  }
+  
+  .loading-message {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .landing-page {
+    opacity: 0; /* Hide landing page initially */
+    transform: scale(1.5); /* Start with zoomed-in */
+    transition: opacity 0.5s ease, transform 1.5s ease;
+  }
+  
+  body {
+    background-color: #f4f4f9; /* Adjust the background of landing page */
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
