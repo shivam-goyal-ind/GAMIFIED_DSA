@@ -13,8 +13,11 @@ const Loader = () => {
     const landingPageElement = landingPageRef.current;
     const cardioContainer = cardioContainerRef.current;
 
-    // Set visibility to ensure elements are visible before animation starts
-    gsap.set([landingPageElement, cardioContainer], { visibility: 'visible' });
+    // Set initial visibility of elements to prevent the "GSAP target not found" issue
+    gsap.set(
+      [cardioContainer, ".loading-message", landingPageElement],
+      { visibility: "visible" }
+    );
 
     if (cardioContainer && loaderElement) {
       const loaderAnimation = gsap.timeline();
@@ -37,21 +40,20 @@ const Loader = () => {
           duration: 1.5,
           ease: 'power3.inOut',
           onComplete: () => {
-            // Ensure loaderElement is hidden
+            // Safely check if loaderElement is still available before accessing classList
             if (loaderElement) {
               loaderElement.classList.add('hidden');
             }
-
-            // Check if the landing page element exists and animate its appearance
-            if (landingPageElement) {
-              gsap.fromTo(
-                landingPageElement,
-                { scale: 1.5, opacity: 0 },
-                { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut' }
-              );
-            }
           },
         });
+    }
+
+    if (landingPageElement) {
+      gsap.fromTo(
+        landingPageElement,
+        { scale: 1.5, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut' }
+      );
     }
   }, []);
 

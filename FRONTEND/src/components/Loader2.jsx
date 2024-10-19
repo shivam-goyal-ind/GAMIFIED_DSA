@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import 'ldrs/grid';
 import { gsap } from 'gsap';
-import './Loader2.css'; // External CSS for styling
-import './LandingPage.jsx';
+import './Loader2.css';
 
 const Loader2 = () => {
   useEffect(() => {
@@ -37,6 +36,7 @@ const Loader2 = () => {
           duration: 1.5,
           ease: 'power3.inOut',
           onComplete: () => {
+            // Safely check if loaderElement is still available before accessing classList
             if (loaderElement) {
               loaderElement.classList.add('hidden');
             }
