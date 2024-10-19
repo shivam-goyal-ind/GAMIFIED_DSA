@@ -34,12 +34,12 @@ const Loader = () => {
           duration: 1.5,
           ease: 'power3.inOut',
           onComplete: () => {
-            // Ensure loaderElement is not null before accessing classList
+            // Ensure loaderElement is hidden
             if (loaderElement) {
               loaderElement.classList.add('hidden');
             }
 
-            // Check if the landing page element exists before animating
+            // Check if the landing page element exists and animate its appearance
             if (landingPageElement) {
               gsap.fromTo(
                 landingPageElement,
