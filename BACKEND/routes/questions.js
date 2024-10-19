@@ -16,69 +16,69 @@ const JUDGE0_API_URL = "https://judge0-ce.p.rapidapi.com/submissions"; // Judge0
 const JUDGE0_API_KEY = process.env.JUDGE0_API_KEY; // API Key from .env
 const API_BASE_URL = process.env.API_BASE_URL; // Fallback to localhost
 
-// Signup Route
-router.post("/signup", async (req, res) => {
-  const { username, email, password } = req.body;
+// // Signup Route
+// router.post("/signup", async (req, res) => {
+//   const { username, email, password } = req.body;
 
-  // Validate that all fields are present
-  if (!username || !email || !password) {
-    return res.status(400).json({ message: "All fields are required" });
-  }
+//   // Validate that all fields are present
+//   if (!username || !email || !password) {
+//     return res.status(400).json({ message: "All fields are required" });
+//   }
 
-  try {
-    // Check if the user already exists
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: "User already exists" });
-    }
+//   try {
+//     // Check if the user already exists
+//     const existingUser = await User.findOne({ email });
+//     if (existingUser) {
+//       return res.status(400).json({ message: "User already exists" });
+//     }
 
-    // Hash the password and save the user
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ username, email, password: hashedPassword });
+//     // Hash the password and save the user
+//     const hashedPassword = await bcrypt.hash(password, 10);
+//     const newUser = new User({ username, email, password: hashedPassword });
 
-    await newUser.save();
+//     await newUser.save();
 
-    // Optionally create and return a JWT token
-    const token = jwt.sign({ id: newUser._id }, JWT_SECRET, { expiresIn: '1h' });
+//     // Optionally create and return a JWT token
+//     const token = jwt.sign({ id: newUser._id }, JWT_SECRET, { expiresIn: '1h' });
 
-    res.status(201).json({ message: "User created successfully", token });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Server error" });
-  }
-});
+//     res.status(201).json({ message: "User created successfully", token });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: "Server error" });
+//   }
+// });
 
-// Signin Route
-router.post("/signin", async (req, res) => {
-  const { email, password } = req.body;
+// // Signin Route
+// router.post("/signin", async (req, res) => {
+//   const { email, password } = req.body;
 
-  // Validate that all fields are present
-  if (!email || !password) {
-    return res.status(400).json({ message: "All fields are required" });
-  }
+//   // Validate that all fields are present
+//   if (!email || !password) {
+//     return res.status(400).json({ message: "All fields are required" });
+//   }
 
-  try {
-    // Check if the user exists
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ message: "Invalid credentials" });
-    }
+//   try {
+//     // Check if the user exists
+//     const user = await User.findOne({ email });
+//     if (!user) {
+//       return res.status(400).json({ message: "Invalid credentials" });
+//     }
 
-    // Compare password
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ message: "Invalid credentials" });
-    }
+//     // Compare password
+//     const isMatch = await bcrypt.compare(password, user.password);
+//     if (!isMatch) {
+//       return res.status(400).json({ message: "Invalid credentials" });
+//     }
 
-    // Optionally create and return a JWT token
-    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' });
+//     // Optionally create and return a JWT token
+//     const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' });
 
-    res.json({ message: "Signin successful", token });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Server error" });
-  }
-});
+//     res.json({ message: "Signin successful", token });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: "Server error" });
+//   }
+// });
 
 // GET a random question
 router.get("/questions/random", async (req, res) => {
