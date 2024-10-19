@@ -45,6 +45,29 @@ app.get("/", (req, res) => {
 });
 
 
+// Profile Route
+app.get("/api/profile", async (req, res) => {
+  const token = req.headers.authorization?.split(" ")[1];
+
+  if (!token) {
+    return res.status(401).json({ message: "No token provided" });
+  }
+
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    const user = await User.findById(decoded.id).select("-password");
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json({ user });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 // API to execute code using Piston
 app.post("/api/execute", async (req, res) => {
   const { language, sourceCode } = req.body;
