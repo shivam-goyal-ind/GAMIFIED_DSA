@@ -6,19 +6,23 @@ import './LandingPage.jsx';
 
 const Loader2 = () => {
   useEffect(() => {
-    // Wait for the DOM to be fully ready
     const loaderElement = document.querySelector('.Loader2');
     const landingPageElement = document.querySelector('.LandingPage');
+    const cardioContainer = document.querySelector('.cardio-container');
 
-    if (loaderElement) {
-      // Initialize GSAP animations
+    // Set initial visibility of elements to prevent the "GSAP target not found" issue
+    gsap.set(
+      [".cardio-container", ".loading-message", ".LandingPage"],
+      { visibility: "visible" }
+    );
+
+    if (loaderElement && cardioContainer) {
       const Loader2Animation = gsap.timeline();
 
-      // Cardio element zoom-in effect
       Loader2Animation
         .fromTo(
-          '.cardio-container', 
-          { scale: 0 }, 
+          cardioContainer,
+          { scale: 0 },
           { scale: 1, duration: 2, ease: 'power2.inOut' }
         )
         .fromTo(
@@ -26,24 +30,23 @@ const Loader2 = () => {
           { opacity: 0 },
           { opacity: 1, duration: 1.5, ease: 'power2.inOut' },
           '-=1'
-        );
-
-      // Zoom-out effect when transitioning to the landing page
-      Loader2Animation.to('.cardio-container', {
-        scale: 0,
-        delay: 3,
-        duration: 1.5,
-        ease: 'power3.inOut',
-        onComplete: () => {
-          document.querySelector('.Loader2').classList.add('hidden');
-        },
-      });
+        )
+        .to(cardioContainer, {
+          scale: 0,
+          delay: 3,
+          duration: 1.5,
+          ease: 'power3.inOut',
+          onComplete: () => {
+            if (loaderElement) {
+              loaderElement.classList.add('hidden');
+            }
+          },
+        });
     }
 
-    // Ensure landing page exists before animating it
     if (landingPageElement) {
       gsap.fromTo(
-        '.LandingPage',
+        landingPageElement,
         { scale: 1.5, opacity: 0 },
         { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut', delay: 5 }
       );
@@ -56,7 +59,7 @@ const Loader2 = () => {
         <l-grid
           size="500"
           speed="2.5"
-          color="white" 
+          color="white"
         ></l-grid>
       </div>
 
