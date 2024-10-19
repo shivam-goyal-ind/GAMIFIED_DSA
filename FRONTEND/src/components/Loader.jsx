@@ -13,6 +13,9 @@ const Loader = () => {
     const landingPageElement = landingPageRef.current;
     const cardioContainer = cardioContainerRef.current;
 
+    // Set visibility to ensure elements are visible before animation starts
+    gsap.set([landingPageElement, cardioContainer], { visibility: 'visible' });
+
     if (cardioContainer && loaderElement) {
       const loaderAnimation = gsap.timeline();
 
