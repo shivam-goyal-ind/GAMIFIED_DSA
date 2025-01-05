@@ -28,7 +28,7 @@ function Eyes() {
 
 
   return (
-    <div className='eyes w-full h-screen overflow-hidden'>
+    <div className='eyes w-full h-screen overflow-hidden rounded-lg'>
         <div data-scroll data-scroll-section data-scroll-speed="-.7" className='relative w-3/4 h-3/4 m-auto mt-20 bg-cover bg-center bg-[url("https://cdn.dribbble.com/users/101844/screenshots/3846171/bowler.gif")]'>
           <div className='absolute flex gap-10 top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%]'>
             <div className='flex items-center justify-center w-[15vw] h-[15vw] bg-zinc-100 rounded-full'>
