@@ -8,7 +8,7 @@ function About() {
         or learning enthusiasts that need to learn & practice Data Structures &
         Algorithms in GAMIFIED MANNER.
       </h1>
-      <div className="w-full border-t-[1px] mt-20 border-blue-200">
+      <div className="w-full border-t-[3px] mt-20 border-blue-200">
         <div className="text-[2vw] px-10 py-20 text-slate-100">
           <h2 className="text-[#2E2E2E]">What you can expect : </h2>
           <div className="flex gap-10 py-10 text-gray-600">
@@ -24,7 +24,7 @@ function About() {
         </div>
       </div>
 
-      <div className="flex gap-5 w-full border-t-[1px] p-20 mt-20 border-blue-200">
+      <div className="flex gap-5 w-full border-t-[3px] p-20 mt-20 border-blue-200">
         <div className="w-1/2">
           <h1 className="text-[4vw]">Our Approach</h1>
           <button className="flex gap-10 px-10 py-6 mt-10 bg-zinc-900 rounded-full text-[1.5vw] text-white items-center">Read More
