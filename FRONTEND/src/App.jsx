@@ -33,7 +33,7 @@ function App() {
   const locomotiveScroll = new LocomotiveScroll();
 
   return (
-    <div className='w-full min-h-screen text-white bg-red-900'>
+    <div className='w-full min-h-screen text-[#66FCF1] bg-zinc-900'>
       {loading ? (
         <div>
           {/* Preloader */}
