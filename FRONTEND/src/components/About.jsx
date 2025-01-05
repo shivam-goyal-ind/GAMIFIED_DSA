@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
   return (
-    <div className="w-full p-20 bg-[#DBDCD5] rounded-3xl text-black">
+    <div className="w-full p-20 bg-[#DBDCD5] rounded-3xl text-[#2E2E2E]">
       <h1 className="text-[4vw] px-10">
         GAMIFIED DSA is a strategic preparation platform for future DEVELOPERS
         or learning enthusiasts that need to learn & practice Data Structures &
@@ -10,7 +10,7 @@ function About() {
       </h1>
       <div className="w-full border-t-[1px] mt-20 border-blue-200">
         <div className="text-[2vw] px-10 py-20 text-slate-100">
-          <h2 className="text-black">What you can expect : </h2>
+          <h2 className="text-[#2E2E2E]">What you can expect : </h2>
           <div className="flex gap-10 py-10 text-gray-600">
             <div className="w-1/2">
               We provide platform to help learners to practice and learn DSA

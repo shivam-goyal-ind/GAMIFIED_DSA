@@ -33,7 +33,7 @@ function Navbar({ scrollToSection }) {
         showNavbar ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
-      <div className="logo" onClick={() => scrollToSection('top-section')}>
+      <div className="logo cursor-pointer" onClick={() => scrollToSection('top-section')}>
         <img
           src="https://cdn-icons-png.flaticon.com/128/16342/16342652.png"
           loading="lazy"
