@@ -29,7 +29,7 @@ function Navbar({ scrollToSection }) {
 
   return (
     <div
-      className={`fixed z-[999] w-full px-20 py-8 font-['Comic Neue'] flex justify-between items-center transition-transform duration-300 ease-in-out ${
+      className={`fixed z-[999] w-full px-20 py-8 font-['Roboto'] flex justify-between items-center transition-transform duration-300 ease-in-out ${
         showNavbar ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
