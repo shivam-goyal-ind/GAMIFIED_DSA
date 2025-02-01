@@ -48,7 +48,7 @@ function LandingPage() {
       <Navbar scrollToSection={scrollToSection} />
 
       {/* Main section with animated text */}
-      <div data-scroll data-scroll-section data-scroll-speed="-.3" className="w-full h-screen bg-[#E0F7FA] pt-2">
+      <div data-scroll data-scroll-section data-scroll-speed="-.3" className="w-full h-screen bg-white pt-2">
         <div className="textstructure mt-40 px-20">
           {['we create', 'future', 'developers'].map((item, index) => {
             return (
