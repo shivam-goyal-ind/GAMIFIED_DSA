@@ -34,11 +34,11 @@ const Loader3 = () => {
     });
 
     // Transition to landing page
-    gsap.fromTo(
-      '.LandingPage',
-      { scale: 1.5, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut', delay: 5 }
-    );
+    // gsap.fromTo(
+    //   '.LandingPage',
+    //   { scale: 1.5, opacity: 0 },
+    //   { scale: 1, opacity: 1, duration: 2, ease: 'power3.inOut', delay: 5 }
+    // );
   }, []);
 
   return (
