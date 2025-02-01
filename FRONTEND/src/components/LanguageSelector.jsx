@@ -18,7 +18,7 @@ import {
         <Text mb={2} fontSize="lg">
           Language :
         <Menu isLazy>
-          <MenuButton ml={5} as={Button}>{language}</MenuButton>
+          <MenuButton ml={5} as={Button} bg="black">{language}</MenuButton>
           <MenuList bg="#110c1b">
             {languages.map(([lang, version]) => (
               <MenuItem

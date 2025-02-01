@@ -45,7 +45,7 @@ function PlayerStats({ formData }) {
                 alt="Player Profile"
                 className="rounded-full w-40 h-40 border-4 border-blue-600"
               />
-              <div className="text-black text-center ml-6">
+              <div className="text-white text-center ml-6">
                 <h1 className="text-4xl font-bold">{username}</h1>
                 <p className="text-xl">{jerseyNumber}</p>
               </div>
