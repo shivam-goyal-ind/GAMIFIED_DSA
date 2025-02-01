@@ -60,7 +60,7 @@ function LandingPage() {
                         initial={{ width: 0 }}
                         animate={{ width: '8vw' }}
                         transition={{ ease: [0.68, -0.6, 0.32, 1.6], duration: 1 }}
-                        className="mr-5 w-[8vw] rounded-md h-[5.7vw] relative bg-[url('https://media.istockphoto.com/id/512185437/photo/indias-flag-close-up.jpg?s=612x612&w=0&k=20&c=ndMmdJY9qsL4f_dJBSDbPjD213GD5s_YcZAJK8z2uTQ=')]"
+                        className="mr-5 w-[8vw] rounded-md h-[5.7vw] relative bg-[url('https://media.istockphoto.com/id/512185437/photo/indias-flag-close-up.jpg?s=612x612&w=0&k=20&c=ndMmdJY9qsL4f_dJBSDbPjD213GD5s_YcZAJK8z2uTQ=')] bg-center bg-cover"
                       />
                     )}
                   </div>

@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
   return (
-    <div className="w-full p-20 bg-[#f1f1f1] rounded-3xl text-[#2E2E2E]">
+    <div className="w-full p-20 bg-[#f1f1f1] rounded-3xl text-[#2E2E2E] font-mono">
       <h1 className="text-[3.5vw] px-10">
         GAMIFIED DSA is a strategic preparation platform for future DEVELOPERS
         or learning enthusiasts that need to learn & practice Data Structures &
