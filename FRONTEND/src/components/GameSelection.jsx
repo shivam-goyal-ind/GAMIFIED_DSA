@@ -30,33 +30,33 @@ function GameSelection() {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen bg-zinc-600">
+    <div className="flex justify-center items-center h-screen bg-white">
       <div onClick={handleGameSelection}
       className="grid grid-cols-2 gap-10">
         <motion.div
           variants={cardVariants}
           whileHover="hover"
-          className="w-80 h-96 bg-white rounded-lg shadow-xl p-6 cursor-pointer"
+          className="w-80 h-96 bg-black rounded-lg shadow-xl p-6 cursor-pointer"
         >
           <img 
             src="https://t4.ftcdn.net/jpg/04/99/62/59/360_F_499625904_jhho0Ev0pAOuFntvY9HXGNQpFQqhBqyo.jpg" // Replace with the cricket image path
             alt="Cricket"
             className="w-full h-64 object-cover rounded-lg"
           />
-          <h2 className="text-center text-2xl mt-4 font-semibold text-black">CRICKET</h2>
+          <h2 className="text-center text-2xl mt-4 font-semibold text-white">CRICKET</h2>
         </motion.div>
 
         <motion.div
           variants={cardVariants}
           whileHover="hover"
-          className="w-80 h-96 bg-white rounded-lg shadow-xl p-6 cursor-pointer"
+          className="w-80 h-96 bg-black rounded-lg shadow-xl p-6 cursor-pointer"
         >
           <img
             src="https://png.pngtree.com/template/20190928/ourmid/pngtree-silhouette-football-kick-shoot-design-image_312704.jpg" // Replace with the football image path
             alt="Football"
             className="w-full h-64 object-cover rounded-lg"
           />
-          <h2 className="text-center text-2xl mt-4 font-semibold text-black">FOOTBALL</h2>
+          <h2 className="text-center text-2xl mt-4 font-semibold text-white">FOOTBALL</h2>
         </motion.div>
       </div>
     </div>

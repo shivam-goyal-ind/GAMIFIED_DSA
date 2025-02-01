@@ -92,28 +92,28 @@ function ProfileCreation() {
   }
 
   return (
-    <div className="h-screen bg-zinc-900 flex justify-center items-center">
+    <div className="h-screen bg-white flex justify-center items-center">
       <motion.div 
         initial={{ opacity: 0, scale: 0.8 }} 
         animate={{ opacity: 1, scale: 1 }} 
         transition={{ duration: 0.8, ease: 'easeInOut' }}
-        className="bg-zinc-800 p-10 rounded-lg shadow-lg max-w-lg w-full"
+        className="bg-white p-10 rounded-lg shadow-lg max-w-lg w-full"
       >
         <div className="flex justify-center mb-6">
           <button 
-            className={`p-3 mx-2 ${isSignUp ? 'bg-blue-600' : 'bg-zinc-700'} text-white rounded-lg`}
+            className={`p-3 mx-2 ${isSignUp ? 'bg-blue-600' : 'bg-white'} text-black rounded-lg`}
             onClick={() => setIsSignUp(true)}
           >
             Sign Up
           </button>
           <button 
-            className={`p-3 mx-2 ${!isSignUp ? 'bg-blue-600' : 'bg-zinc-700'} text-white rounded-lg`}
+            className={`p-3 mx-2 ${!isSignUp ? 'bg-blue-600' : 'bg-white'} text-black rounded-lg`}
             onClick={() => setIsSignUp(false)}
           >
             Sign In
           </button>
         </div>
-        <h2 className="text-white text-4xl font-semibold mb-6 text-center">
+        <h2 className="text-black text-4xl font-semibold mb-6 text-center">
           {isSignUp ? 'Create Your Profile' : 'Sign In'}
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -127,7 +127,7 @@ function ProfileCreation() {
                   placeholder={field.charAt(0).toUpperCase() + field.slice(1).replace(/([A-Z])/g, ' $1')}
                   value={formData[field]}
                   onChange={handleChange}
-                  className="w-full p-3 rounded-lg bg-zinc-700 text-white"
+                  className="w-full p-3 rounded-lg bg-white text-black"
                 />
               ))}
             </>
@@ -141,14 +141,14 @@ function ProfileCreation() {
                   placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
                   value={formData[field]}
                   onChange={handleChange}
-                  className="w-full p-3 rounded-lg bg-zinc-700 text-white"
+                  className="w-full p-3 rounded-lg bg-white text-black"
                 />
               ))}
             </>
           )}
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg transition duration-300 ease-in-out"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-black p-3 rounded-lg transition duration-300 ease-in-out"
           >
             {isSignUp ? 'Submit and Start the Game' : 'Sign In'}
           </button>

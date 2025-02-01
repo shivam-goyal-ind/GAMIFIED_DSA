@@ -30,7 +30,7 @@ function PlayerStats({ formData }) {
 
   // Main player stats UI
   return (
-    <div className="h-screen bg-zinc-900 flex justify-center items-center">
+    <div className="h-screen bg-white flex justify-center items-center">
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -45,13 +45,13 @@ function PlayerStats({ formData }) {
                 alt="Player Profile"
                 className="rounded-full w-40 h-40 border-4 border-blue-600"
               />
-              <div className="text-white text-center ml-6">
+              <div className="text-black text-center ml-6">
                 <h1 className="text-4xl font-bold">{username}</h1>
                 <p className="text-xl">{jerseyNumber}</p>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 text-white">
+            <div className="grid grid-cols-2 gap-4 text-balck">
               {[
                 { label: 'Matches Played', value: '50' },
                 { label: 'Runs Scored', value: '1200' },
@@ -61,7 +61,7 @@ function PlayerStats({ formData }) {
               ].map((stat, idx) => (
                 <div
                   key={idx}
-                  className="bg-zinc-700 p-3 rounded-lg shadow-md text-center"
+                  className="bg-white p-3 rounded-lg shadow-md text-center"
                 >
                   <h2 className="text-2xl font-semibold">{stat.label}</h2>
                   <p className="text-4xl mt-1">{stat.value}</p>
@@ -70,7 +70,7 @@ function PlayerStats({ formData }) {
             </div>
           </div>
 
-          <div className="w-1/2 bg-zinc-700 p-6 rounded-lg shadow-md text-white ml-8">
+          <div className="w-1/2 bg-white p-6 rounded-lg shadow-md text-black ml-8">
             <h2 className="text-4xl font-semibold mb-4 text-center underline">Game Rules</h2>
             <ol className="list-decimal ml-6 space-y-2 text-[3vh]">
               <li>For solving each EASY question correctly, 10 runs will be added to your score.</li>
@@ -80,7 +80,7 @@ function PlayerStats({ formData }) {
               <li>If you fail to solve a MEDIUM or HARD question, you will not be OUT, but 5 runs will be deducted from your score.</li>
             </ol>
             <button
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg mt-6 transition duration-300 ease-in-out"
+              className="w-full bg-blue-600 hover:bg-blue-700 textblack p-3 rounded-lg mt-6 transition duration-300 ease-in-out"
               onClick={onProceed}
             >
               Proceed to Start
