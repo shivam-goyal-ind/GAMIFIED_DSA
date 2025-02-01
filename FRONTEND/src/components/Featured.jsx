@@ -18,7 +18,7 @@ function Featured() {
   };
 
   return (
-    <div className="w-full py-20 bg-[#f1f1f1] text-[#2E2E2E]">
+    <div className="w-full py-20 bg-[#f1f1f1] text-[#2E2E2E] font-mono">
       <div className="w-full px-[4.5vw] border-b-[1px] border-zinc-700 pb-10">
         <h1 className="text-[4.5vw] font-semibold"> INSIGHTS -</h1>
       </div>

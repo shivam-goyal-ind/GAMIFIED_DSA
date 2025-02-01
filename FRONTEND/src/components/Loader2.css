@@ -24,7 +24,7 @@
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: monospace;
   opacity: 0; /* Initial opacity for fade-in effect */
   transition: opacity 1.5s ease;
 }
